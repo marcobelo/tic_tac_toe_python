@@ -4,7 +4,7 @@ from code.board import Board
 def test_create_new_board():
     expected_result = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
     board = Board()
-    assert board.board == expected_result
+    assert board == expected_result
 
 
 def test_make_a_move():
@@ -13,4 +13,4 @@ def test_make_a_move():
     board = Board()
     board.make_a_move(1, 1, player_value)
 
-    assert board.board == expected_result
+    assert board == expected_result
