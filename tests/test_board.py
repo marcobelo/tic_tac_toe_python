@@ -1,5 +1,5 @@
 from code.board import Board, Coord
-from code.exceptions import InvalidMove
+from code.exceptions import InvalidCoord
 
 import pytest
 
@@ -19,8 +19,8 @@ def test_make_a_move():
 
 
 @pytest.mark.parametrize("column", [-1, 3])
-def test_invalid_coord_column_value_should_raise_InvalidMove_exception(column):
-    with pytest.raises(InvalidMove) as exception:
+def test_invalid_coord_column_value_should_raise_InvalidCoord_exception(column):
+    with pytest.raises(InvalidCoord) as exception:
         Coord(column, 1)
     assert (
         exception.value.message
@@ -29,8 +29,8 @@ def test_invalid_coord_column_value_should_raise_InvalidMove_exception(column):
 
 
 @pytest.mark.parametrize("row", [-1, 3])
-def test_invalid_coord_row_value_should_raise_InvalidMove_exception(row):
-    with pytest.raises(InvalidMove) as exception:
+def test_invalid_coord_row_value_should_raise_InvalidCoord_exception(row):
+    with pytest.raises(InvalidCoord) as exception:
         Coord(1, row)
     assert (
         exception.value.message == "Invalid value for row, should be one of [0, 1, 2]"
