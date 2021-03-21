@@ -1,4 +1,7 @@
 from code.coord import Coord
+from code.exceptions import InvalidMove
+
+AVAILABLE_COORD = 0
 
 
 class Board:
@@ -10,7 +13,8 @@ class Board:
         self._set_value(coord, player_value)
 
     def _validate_move(self, coord: Coord):
-        pass
+        if self._get_value(coord) != AVAILABLE_COORD:
+            raise InvalidMove("Invalid move, this position is already occupied")
 
     def _set_value(self, coord: Coord, value):
         self._data[coord.row][coord.column] = value
