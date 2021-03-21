@@ -14,3 +14,12 @@ def test_make_a_move():
     board.make_a_move(Coord(1, 1), 1)
 
     assert board._data == expected_result
+
+
+def test_set_and_get_value():
+    expected_value = 3
+    board = Board()
+    board._set_value(Coord(1, 2), expected_value)
+    result_value = board._get_value(Coord(1, 2))
+
+    assert result_value == expected_value
