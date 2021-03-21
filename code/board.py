@@ -1,6 +1,7 @@
-class Board:
+class Board(list):
     def __init__(self):
-        self.board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        super(Board, self).__init__(board)
 
     def make_a_move(self, x, y, player_value):
-        self.board[y][x] = player_value
+        self[y][x] = player_value
