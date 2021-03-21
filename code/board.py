@@ -1,14 +1,13 @@
 from code.exceptions import InvalidMove
 
 
-class Board(list):
+class Board:
     def __init__(self):
-        board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-        super(Board, self).__init__(board)
+        self._data = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
     def make_a_move(self, x, y, player_value):
         self._validate_move(x, y)
-        self[y][x] = player_value
+        self._data[y][x] = player_value
 
     def _validate_move(self, x, y):
         INVALID_VALUE_FOR_COORD_MSG = "Invalid value for {}, should be one of [0, 1, 2]"

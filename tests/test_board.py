@@ -7,7 +7,7 @@ import pytest
 def test_create_new_board():
     expected_result = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
     board = Board()
-    assert board == expected_result
+    assert board._data == expected_result
 
 
 def test_make_a_move():
@@ -15,7 +15,7 @@ def test_make_a_move():
     board = Board()
     board.make_a_move(1, 1, 1)
 
-    assert board == expected_result
+    assert board._data == expected_result
 
 
 @pytest.mark.parametrize("column", [-1, 3])
